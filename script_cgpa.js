@@ -383,13 +383,13 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
   function displayResults() {
     var studentId = document.getElementById('student-id').value.trim();
     if (!studentId) {
-      alert('Please enter a valid student ID.');
+      alert('Please enter a valid Roll Number.');
       return;
     }
 
     var studentData = getStudentData(studentId, parseCSV(csvData));
     if (studentData.length === 0) {
-      alert('No data found for the given student ID.');
+      alert('No data found for the given Roll Number.');
       return;
     }
 
