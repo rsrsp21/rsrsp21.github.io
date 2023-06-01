@@ -50,6 +50,12 @@
       color: #ffffff;
       cursor: pointer;
     }
+.cgpa-button {
+      background-color: #2F4F4F;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
 
     table {
   width: 100%;
