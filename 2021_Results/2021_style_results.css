@@ -137,21 +137,12 @@ tr:hover td {
       margin-bottom: 20px;
     }
 
-	footer {
-  padding: 10px;
-  text-align: center;
-}
-
-/* CSS styles for the footer box */
-footer .box {
-  background-color: #4CAF50; /* Button's background color */
-  padding: 5px 10px;
-  color: #ffffff;
-  border-radius: 4px;
-  display: inline-block;
-  width: 100%; /* Set width to cover the full width of the page */
-  box-sizing: border-box; /* Include padding within the width */
-}
+	 .footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #dddddd;
+    }
  @media (max-width: 700px) {
       .logo img {
         width: 375px;
