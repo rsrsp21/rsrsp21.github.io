@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honors Textbooks (CSE)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .genre-box {
+      margin-bottom: 20px;
+    }
+
+    .genre-box-select {
+      width: 100%;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      color: #333333;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .genre-box-select-arrow {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .ebook-list {
+      display: none;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .ebook-item {
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+      color: #333333;
+    }
+
+    .ebook-item:not(:last-child) {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .genre-box.open .ebook-list {
+      display: block;
+    }
+
+    .separator {
+      border-top: 1px solid #dddddd;
+      margin-top: 10px;
+    }
+.line{
+      border-top: 1px solid #dddddd;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #dddddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="university-logo.png" alt="University Logo">
+    </div>
+
+    <div class="header">
+      <h1>Honors Textbooks (CSE)</h1>
+    </div>
+	<div class="line"></div>
+
+
+    <div class="genre-box">
+      <div class="genre-box-select">Data Science</div>
+      <div class="ebook-list">
+        <a href="https://gateway.ipfs.io/ipfs/bafykbzacealuwrzoztiuwjeezbxwwte3gs6jgifzfndupmr2ebakptgni4jac?filename=%28360%20Degree%20Business%29%20Matthew%20O.%20Ward%2C%20Georges%20Grinstein%2C%20Daniel%20Keim%20-%20Interactive%20Data%20Visualization_%20Foundations%2C%20Techniques%2C%20and%20Applications%2C%20Second%20Edition-A%20K%20Peters_CRC%20Press%20%282015%29.pdf" class="ebook-item">Ward, Grinstein, Keim, Interactive Data Visualization: Foundations, Techniques, and Applications. Natick, 2nd edition,A K Peters, Ltd 2015.</a>
+        <!--<a href="ebook2.pdf" class="ebook-item">E-Book 2</a>
+        <a href="ebook3.pdf" class="ebook-item">E-Book 3</a>-->
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="genre-box">
+      <div class="genre-box-select">Information Security</div>
+      <div class="ebook-list">
+        <a href="https://www.scribd.com/document/504513478/Book-Nasscom" class="ebook-item">NASSCOM: Security Analyst Student Hand Book, Dec 2015</a>
+        <!--<a href="ebook5.pdf" class="ebook-item">E-Book 5</a>
+        <a href="ebook6.pdf" class="ebook-item">E-Book 6</a>-->
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="genre-box">
+      <div class="genre-box-select">Artificial Intelligence and Machine Learning</div>
+      <div class="ebook-list">
+        <a href="https://mml-book.github.io/book/mml-book.pdf" class="ebook-item">“Mathematics for Machine Learning”, Marc Peter Deisenroth, A. Aldo Faisal and Cheng Soon Ong, Cambridge University Press.</a>
+        <!--<a href="ebook8.pdf" class="ebook-item">E-Book 8</a>
+        <a href="ebook9.pdf" class="ebook-item">E-Book 9</a>-->
+      </div>
+    </div>
+
+    <!--<div class="separator"></div>-->
+
+    <div class="footer">
+      &copy; Created by Sri Ram Sai Pavan Relangi, 2023
+    </div>
+  </div>
+
+  <script>
+    var genreBoxes = document.querySelectorAll('.genre-box');
+    genreBoxes.forEach(function(box) {
+      var select = box.querySelector('.genre-box-select');
+      var arrow = document.createElement('span');
+      arrow.classList.add('genre-box-select-arrow');
+      arrow.innerHTML = '&#x25BC;';
+      select.appendChild(arrow);
+
+      var list = box.querySelector('.ebook-list');
+      var isOpen = false;
+
+      select.addEventListener('click', function() {
+        isOpen = !isOpen;
+        list.style.display = isOpen ? 'block' : 'none';
+
+        genreBoxes.forEach(function(otherBox) {
+          if (otherBox !== box) {
+            var otherList = otherBox.querySelector('.ebook-list');
+            otherList.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
