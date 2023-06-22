@@ -143,8 +143,3 @@ tr:hover td {
       padding-top: 20px;
       border-top: 1px solid #dddddd;
     }
- @media (max-width: 700px) {
-      .logo img {
-        width: 375px;
-      }
-    }
