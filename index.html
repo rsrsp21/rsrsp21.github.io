@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JNTUK UCEN Results (R20 2021 Admitted Onwards)</title>
-<link rel = "shortcut icon" href="images/favicon.ico" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2593733060753881"
-     crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2593733060753881"
+          crossorigin="anonymous"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -18,6 +18,12 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       color: #333333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.night-mode {
+      background-color: #333333;
+      color: #f4f4f4;
     }
 
     .container {
@@ -26,15 +32,17 @@
       padding: 20px;
       background-color: #ffffff;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
+    .container.night-mode {
+      background-color: #222222;
     }
-h2 {
+
+    h1, h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: inherit;
     }
 
     .logo {
@@ -47,91 +55,86 @@ h2 {
       height: auto;
     }
 
-     .imp_list {
+    .imp_list, .note_list {
       list-style: none;
       padding: 0;
       text-align: center;
       margin-bottom: 20px;
     }
 
-    .imp_list li {
+    .imp_list li, .note_list li {
       margin-bottom: 10px;
     }
 
-    .imp_list li a {
+    .imp_list li a, .note_list li a {
       display: inline-block;
       padding: 10px 20px;
       background-color: green;
       color: #ffffff;
       text-decoration: none;
       border-radius: 4px;
-    }
-	 .imp_list li a:hover {
-      background-color: #006400;
-    }
-	  .note_list {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .note_list li {
-      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
     }
 
     .note_list li a {
-      display: inline-block;
-      padding: 10px 20px;
       background-color: #DB7093;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 4px;
     }
-	 .note_list li a:hover {
+
+    .imp_list li a:hover, .note_list li a:hover {
+      background-color: #006400;
+    }
+
+    .note_list li a:hover {
       background-color: #FF1493;
     }
 
-    
-	.new-indicator {
+    .new-indicator {
       display: inline-block;
       margin-left: 5px;
       vertical-align: middle;
       animation: blink 1s infinite;
     }
 
-.new-notice {
+    .new-notice {
       text-align: center;
       margin-bottom: 10px;
       animation: blink 1s infinite;
     }
 
     @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-.scroll-notice {
-  background-color: #f7f7f7;
-  padding: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-}
 
-.scroll-notice p {
-  animation: scroll-anim 12s linear infinite;
-  display: inline-block;
-}
+    .scroll-notice {
+      background-color: #f7f7f7;
+      padding: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-@keyframes scroll-anim {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-	  .separator {
+    .scroll-notice p {
+      animation: scroll-anim 12s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes scroll-anim {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .separator {
       border-top: 1px solid #dddddd;
       margin-top: 20px;
       margin-bottom: 20px;
@@ -143,7 +146,8 @@ h2 {
       padding-top: 20px;
       border-top: 1px solid #dddddd;
     }
-	  @media (max-width: 700px) {
+
+    @media (max-width: 700px) {
       .logo img {
         width: 375px;
       }
@@ -155,35 +159,41 @@ h2 {
     <div class="logo">
       <a href="https://jntunresultsr20.vercel.app/"><img src="images/logo.png" alt="University Logo"></a>
     </div>
-    <!--<h1 class="university-name">University Name</h1>-->
     <div class="separator"></div>
-	  <h1>R20 Results</h1>
-	  <h2>(2021 Admitted Onwards)</h2>
-	  <div class="scroll-notice">
-		  <p><b>*** All results contain latest Supplementary & RC/RV results. ***</b></p>
+    <h1>R20 Results</h1>
+    <h2>(2021 Admitted Onwards)</h2>
+    <div class="scroll-notice">
+      <p><b>*** All results contain latest Supplementary & RC/RV results. ***</b></p>
     </div>
-	   <div class="separator"></div>
-	 <div class="new-notice">
-		  <span class="blink"><b>Honors Text books for B.Tech (Honors) 1st Semester (CSE) are uploaded.</b></span>
+    <div class="separator"></div>
+    <div class="new-notice">
+      <span class="blink"><b>Honors Text books for B.Tech (Honors) 1st Semester (CSE) are uploaded.</b></span>
     </div>
-	  <br>
-	  <!--<p align='center'><a href="2-2_Mid-2_TT.jpg" target="_blank" download>Download 2-2 Mid-2 TimeTable<span class="new-indicator"><img src="new.png" alt="New" style="width: 30px; height: auto;"></span></a></p><br>-->
-	  
-	  <div>
-	  <ul class ='imp_list'>
-	  <li><a href='2022_Results/2022_Portal.html'>2022-26 Batch Results<br>(Updated upto 1-1)</a></li>
-	  <li><a href='2021_Results/2021_Portal.html'>2021-25 Batch Results<br>(Updated upto 2-1)</a></li>
-	  </ul></div>
-	  <div>
-	  <ul class ='note_list'>
-	  <li><a href='Honors_books/honors_books_cse.html'>B.Tech. (Honors) Textbooks<br>(Only CSE)</a></li>
-	  </ul></div>
- <div>
-      <p align = 'center'><b>If you find any errors / issues in your results, please contact <a href="mailto:rsrsp21@gmail.com">rsrsp21@gmail.com</a></b></p>
+    <br>
+    <div>
+      <ul class="imp_list">
+        <li><a href="2022_Results/2022_Portal.html">2022-26 Batch Results<br>(Updated upto 1-1)</a></li>
+        <li><a href="2021_Results/2021_Portal.html">2021-25 Batch Results<br>(Updated upto 2-1)</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="note_list">
+        <li><a href="Honors_books/honors_books_cse.html">B.Tech. (Honors) Textbooks<br>(Only CSE)</a></li>
+      </ul>
+    </div>
+    <div>
+      <p align="center"><b>If you find any errors / issues in your results, please contact <a href="mailto:rsrsp21@gmail.com">rsrsp21@gmail.com</a></b></p>
     </div>
     <div class="footer">
       &copy; Created by Sri Ram Sai Pavan Relangi, 2023
     </div>
   </div>
+  <button onclick="toggleNightMode()">Toggle Night Mode</button>
+  <script>
+    function toggleNightMode() {
+      document.body.classList.toggle('night-mode');
+      document.querySelector('.container').classList.toggle('night-mode');
+    }
+  </script>
 </body>
 </html>
