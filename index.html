@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JNTUK UCEN Results (R20 2021 Admitted Onwards)</title>
   <link rel="shortcut icon" href="images/favicon.ico" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2593733060753881"
-          crossorigin="anonymous"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -33,6 +31,7 @@
       background-color: #ffffff;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease;
+      position: relative;
     }
 
     .container.night-mode {
@@ -118,20 +117,22 @@
       padding: 10px;
       overflow: hidden;
       white-space: nowrap;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .scroll-notice p {
       animation: scroll-anim 12s linear infinite;
       display: inline-block;
+      color: inherit;
     }
 
     @keyframes scroll-anim {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+       0% {
+         transform: translateX(100%);
+       }
+       100% {
+         transform: translateX(-100%);
+       }
     }
 
     .separator {
@@ -147,67 +148,25 @@
       border-top: 1px solid #dddddd;
     }
 
-    /* Night Mode Styling */
-
     #mode-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 50%;
-      background-color: transparent;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
     }
 
-    #mode-toggle:focus {
-      outline: none;
-    }
-
-    .moon,
-    .sun {
-      display: block;
-      width: 24px;
-      height: 24px;
+    #icon {
+      width: 20px;
+      height: 20px;
+      background-image: url('images/moon.png');
       background-repeat: no-repeat;
-      background-size: contain;
-      transition: transform 0.3s ease;
+      background-position: center;
+      background-size: cover;
     }
 
-    .moon {
-      background-image: url('images/moon.png'); /* Replace with the URL of your moon icon */
+    #icon.sun {
+      background-image: url('images/sun.png');
     }
-
-    .sun {
-      background-image: url('images/sun.png'); /* Replace with the URL of your sun icon */
-    }
-
-    body.night-mode #mode-toggle {
-      background-color: #ffffff;
-    }
-
-    body.night-mode #mode-toggle:hover {
-      background-color: #dddddd;
-    }
-
-    body.night-mode #mode-toggle .moon {
-      transform: translateY(-10px);
-    }
-
-    body.night-mode #mode-toggle .sun {
-      transform: translateY(10px);
-    }
-    .scroll-notice.night-mode {
-  background-color: #333333;
-  color: #f4f4f4;
-}
-
-.scroll-notice.night-mode p {
-  color: #f4f4f4;
-}
-
 
     @media (max-width: 700px) {
       .logo img {
@@ -217,11 +176,11 @@
   </style>
 </head>
 <body>
-  <button id="mode-toggle" onclick="toggleNightMode()">
-    <span id="icon" class="moon"></span>
-  </button>
-
   <div class="container">
+    <button id="mode-toggle" onclick="toggleNightMode()">
+      <span id="icon" class="moon"></span>
+    </button>
+
     <div class="logo">
       <a href="https://jntunresultsr20.vercel.app/"><img src="images/logo.png" alt="University Logo"></a>
     </div>
