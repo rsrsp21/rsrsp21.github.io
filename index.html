@@ -226,9 +226,7 @@ body.night-mode button:hover {
     </div>
     <div>
       <p align="center"><b>If you find any errors / issues in your results, please contact <a href="mailto:rsrsp21@gmail.com">rsrsp21@gmail.com</a></b></p><br>
-    </div>
-    <div class = "button">
-      <button>Night Mode</button>
+    <p align = 'center'><button onclick="toggleNightMode()">Night Mode</button></p>
     </div>
     <div class="footer">
       &copy; Created by Sri Ram Sai Pavan Relangi, 2023
@@ -236,20 +234,8 @@ body.night-mode button:hover {
   </div>
   <script>
     function toggleNightMode() {
-      const body = document.body;
-      const container = document.querySelector('.container');
-      const icon = document.getElementById('icon');
-
-      body.classList.toggle('night-mode');
-      container.classList.toggle('night-mode');
-
-      if (body.classList.contains('night-mode')) {
-        icon.classList.remove('moon');
-        icon.classList.add('sun');
-      } else {
-        icon.classList.remove('sun');
-        icon.classList.add('moon');
-      }
+      document.body.classList.toggle('night-mode');
+      document.querySelector('.container').classList.toggle('night-mode');
     }
   </script>
 </body>
