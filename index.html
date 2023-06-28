@@ -184,6 +184,57 @@ body.night-mode button:hover {
 .scroll-notice.night-mode p {
   color: #f4f4f4;
 }
+#mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mode-toggle:focus {
+  outline: none;
+}
+
+.moon,
+.sun {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.moon {
+  background-image: url('images/moon.png'); /* Replace with the URL of your moon icon */
+}
+
+.sun {
+  background-image: url('images/sun.png'); /* Replace with the URL of your sun icon */
+}
+
+body.night-mode #mode-toggle {
+  background-color: #ffffff;
+}
+
+body.night-mode #mode-toggle:hover {
+  background-color: #dddddd;
+}
+
+body.night-mode #mode-toggle .moon {
+  transform: translateY(-10px);
+}
+
+body.night-mode #mode-toggle .sun {
+  transform: translateY(10px);
+}
+
 
     @media (max-width: 700px) {
       .logo img {
@@ -220,18 +271,30 @@ body.night-mode button:hover {
       </ul>
     </div>
     <div>
-      <p align="center"><b>If you find any errors / issues in your results, please contact <a href="mailto:rsrsp21@gmail.com">rsrsp21@gmail.com</a></b></p><br>
-      <p align = 'center'><button onclick="toggleNightMode()">Night Mode</button></p>
-    </div>
+      <p align="center"><b>If you find any errors / issues in your results, please contact <a href="mailto:rsrsp21@gmail.com">rsrsp21@gmail.com</a></b></p>
+    </div><br>
+    <div>
+  <button id="mode-toggle" onclick="toggleNightMode()">
+    <span id="icon" class="moon"></span>
+  </button>
+</div>
     <div class="footer">
       &copy; Created by Sri Ram Sai Pavan Relangi, 2023
     </div>
   </div>
   <script>
     function toggleNightMode() {
-      document.body.classList.toggle('night-mode');
-      document.querySelector('.container').classList.toggle('night-mode');
-    }
+  document.body.classList.toggle('night-mode');
+  document.querySelector('.container').classList.toggle('night-mode');
+  const icon = document.getElementById('icon');
+  if (document.body.classList.contains('night-mode')) {
+    icon.classList.remove('moon');
+    icon.classList.add('sun');
+  } else {
+    icon.classList.remove('sun');
+    icon.classList.add('moon');
+  }
+}
   </script>
 </body>
 </html>
