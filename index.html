@@ -7,165 +7,186 @@
   <link rel="shortcut icon" href="images/favicon.ico" />
   <style>
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333333;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    body.night-mode {
-      background-color: #333333;
-      color: #f4f4f4;
-    }
+body.night-mode {
+  background-color: #333333;
+  color: #f4f4f4;
+}
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #ffffff;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-      position: relative;
-    }
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
 
-    .container.night-mode {
-      background-color: #222222;
-    }
+.container.night-mode {
+  background-color: #222222;
+}
 
-    h1, h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: inherit;
-    }
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: inherit;
+}
 
-    .logo {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .logo img {
-      width: 700px;
-      height: auto;
-    }
+.logo img {
+  width: 700px;
+  height: auto;
+}
 
-    .imp_list, .note_list {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.imp_list, .note_list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .imp_list li, .note_list li {
-      margin-bottom: 10px;
-    }
+.imp_list li, .note_list li {
+  margin-bottom: 10px;
+}
 
-    .imp_list li a, .note_list li a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: green;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
+.imp_list li a, .note_list li a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: green;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
-    .note_list li a {
-      background-color: #DB7093;
-    }
+.note_list li a {
+  background-color: #DB7093;
+}
 
-    .imp_list li a:hover, .note_list li a:hover {
-      background-color: #006400;
-    }
+.imp_list li a:hover, .note_list li a:hover {
+  background-color: #006400;
+}
 
-    .note_list li a:hover {
-      background-color: #FF1493;
-    }
+.note_list li a:hover {
+  background-color: #FF1493;
+}
 
-    .new-indicator {
-      display: inline-block;
-      margin-left: 5px;
-      vertical-align: middle;
-      animation: blink 1s infinite;
-    }
+.new-indicator {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
 
-    .new-notice {
-      text-align: center;
-      margin-bottom: 10px;
-      animation: blink 1s infinite;
-    }
+.new-notice {
+  text-align: center;
+  margin-bottom: 10px;
+  animation: blink 1s infinite;
+}
 
-    @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-    .scroll-notice {
-      background-color: #f7f7f7;
-      padding: 10px;
-      overflow: hidden;
-      white-space: nowrap;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+.scroll-notice {
+  background-color: #f7f7f7;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #333333;
+  transition: color 0.3s ease;
+}
 
-    .scroll-notice p {
-      animation: scroll-anim 12s linear infinite;
-      display: inline-block;
-      color: inherit;
-    }
+.scroll-notice p {
+  animation: scroll-anim 12s linear infinite;
+  display: inline-block;
+}
 
-    @keyframes scroll-anim {
-       0% {
-         transform: translateX(100%);
-       }
-       100% {
-         transform: translateX(-100%);
-       }
-    }
+@keyframes scroll-anim {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
-    .separator {
-      border-top: 1px solid #dddddd;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+.separator {
+  border-top: 1px solid #dddddd;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dddddd;
+}
+
+/* Night Mode Styling */
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444444;
+}
+
+body.night-mode button {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.night-mode button:hover {
+  background-color: #dddddd;
+}
+
+.scroll-notice.night-mode {
+  background-color: #333333;
+  color: #f4f4f4;
+}
+
+.scroll-notice.night-mode p {
+  color: #f4f4f4;
+}
     .footer {
       text-align: center;
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid #dddddd;
-    }
-
-    #mode-toggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1;
-    }
-
-    #icon {
-      width: 20px;
-      height: 20px;
-      background-image: url('images/moon.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-
-    #icon.sun {
-      background-image: url('images/sun.png');
     }
 
     @media (max-width: 700px) {
