@@ -1991,46 +1991,53 @@ var clearedSupplementaryIDs = [
 ]    
     function displayResults() {
       var studentId = document.getElementById('student-id').value.trim();
-      if (!studentId) {
-        alert('Please enter a valid Roll Number');
-        return;
+  if (!studentId) {
+    alert('Please enter a valid Roll Number');
+    return;
+  }
+
+  var studentData = getStudentData(studentId, parseCSV(csvData));
+  if (studentData.length === 0) {
+    alert('No data found for the given Roll Number.');
+    return;
+  }
+
+  var idContainer = document.getElementById('id-container');
+  idContainer.textContent = 'ID: ' + studentId;
+
+  var resultsContainer = document.getElementById('results-container');
+  resultsContainer.innerHTML = '';
+
+  var table = document.createElement('table');
+  var tableHeader = document.createElement('thead');
+  var tableBody = document.createElement('tbody');
+
+  var headers = Object.keys(studentData[0]);
+  var headerRow = document.createElement('tr');
+  headers.forEach(function(header) {
+    if (header !== 'ID') {
+      var th = document.createElement('th');
+      th.textContent = header;
+      headerRow.appendChild(th);
+    }
+  });
+  tableHeader.appendChild(headerRow);
+
+  studentData.forEach(function(subject) {
+    var row = document.createElement('tr');
+    Object.entries(subject).forEach(function([key, value]) {
+      if (key !== 'ID') {
+        var td = document.createElement('td');
+        td.textContent = value;
+        row.appendChild(td);
       }
+    });
+    tableBody.appendChild(row);
+  });
 
-      var studentData = getStudentData(studentId, parseCSV(csvData));
-      if (studentData.length === 0) {
-        alert('No data found for the given Roll Number.');
-        return;
-      }
-
-      var resultsContainer = document.getElementById('results-container');
-      resultsContainer.innerHTML = '';
-
-      var table = document.createElement('table');
-      var tableHeader = document.createElement('thead');
-      var tableBody = document.createElement('tbody');
-
-      var headers = Object.keys(studentData[0]);
-      var headerRow = document.createElement('tr');
-      headers.forEach(function(header) {
-        var th = document.createElement('th');
-        th.textContent = header;
-        headerRow.appendChild(th);
-      });
-      tableHeader.appendChild(headerRow);
-
-      studentData.forEach(function(subject) {
-        var row = document.createElement('tr');
-        Object.values(subject).forEach(function(value) {
-          var td = document.createElement('td');
-          td.textContent = value;
-          row.appendChild(td);
-        });
-        tableBody.appendChild(row);
-      });
-
-      table.appendChild(tableHeader);
-      table.appendChild(tableBody);
-      resultsContainer.appendChild(table);
+  table.appendChild(tableHeader);
+  table.appendChild(tableBody);
+  resultsContainer.appendChild(table);
 
 var sgpaContainer = document.getElementById('sgpa-container');
 sgpaContainer.innerHTML = '';
