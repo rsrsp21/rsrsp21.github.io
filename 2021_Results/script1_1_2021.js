@@ -2080,11 +2080,13 @@ document.getElementById('student-id').focus();
     	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
 
 function printResults() {
+  var printWindow = window.open('', '_blank');
   var printContents = document.querySelector('.container').innerHTML;
-  var originalContents = document.body.innerHTML;
 
-  document.body.innerHTML = printContents;
-  window.print();
+  printWindow.document.open();
+  printWindow.document.write('<html><head><title>Print Results</title></head><body>' + printContents + '</body></html>');
+  printWindow.document.close();
 
-  document.body.innerHTML = originalContents;
+  printWindow.print();
+  printWindow.close();
 }
