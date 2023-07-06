@@ -2032,6 +2032,8 @@ var clearedSupplementaryIDs = [
       table.appendChild(tableBody);
       resultsContainer.appendChild(table);
 
+ var sgpa = calculateSGPA(studentData);
+
 var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
 
