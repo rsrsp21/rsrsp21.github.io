@@ -2004,13 +2004,16 @@ var studentId = document.getElementById('student-id').value.trim();
   }
 
  var idContainer = document.getElementById('id-container');
-  var idHeading = idContainer.querySelector('h3');
-  idHeading.textContent = 'ID:';
+  var idHeading = idContainer.querySelector('p');
+  idHeading.textContent = 'ID: ';
+ // idHeading.style.color = 'red';
   idHeading.style.fontWeight = 'bold';
   idContainer.style.marginTop = '20px';
 
   var idValue = document.createElement('span');
-  idValue.textContent = ' ' + studentId;
+  idValue.textContent = studentId;
+  idValue.style.color = 'red';
+  idValue.style.fontWeight = 'bold';
   idHeading.appendChild(idValue);
 
   var resultsContainer = document.getElementById('results-container');
