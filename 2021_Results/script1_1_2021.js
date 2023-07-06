@@ -2035,8 +2035,8 @@ var sgpa = calculateSGPA(studentData);
   var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
 
-  //var sgpaHeading = document.createElement('h2');
- // sgpaHeading.textContent = 'Result:';
+  var sgpaHeading = document.createElement('p');
+ sgpaHeading.textContent = 'Result:';
 
   var sgpaResult = document.createElement('p');
   sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
