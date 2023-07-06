@@ -67,16 +67,16 @@ p {
     }
 
 
-    table {
+   table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #dddddd;
   margin-bottom: 20px;
 }
 
 th, td {
   padding: 10px;
   text-align: left;
+  border-right: 1px solid #dddddd; /* Add border to the right side */
 }
 
 th {
