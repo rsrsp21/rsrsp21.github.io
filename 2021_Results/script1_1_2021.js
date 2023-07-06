@@ -2061,7 +2061,7 @@ sgpaContainer.innerHTML = '';
     	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
 	
 function printResults() {
-  var printContents = document.getElementById('results-container').innerHTML;
+  var printContents = document.querySelector('.container').innerHTML;
   var originalContents = document.body.innerHTML;
 
   document.body.innerHTML = printContents;
