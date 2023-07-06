@@ -167,8 +167,12 @@ tr:hover td {
     height: 0;
     margin-top: -20px;
   }
-  .cgpa-buttons,
-.complain,
+  .cgpa-buttons{
+  display: none;
+  }
+.complain{
+	display: none;
+}
 footer
 {
     display: none;
