@@ -2059,9 +2059,9 @@ sgpaContainer.innerHTML = '';
 
     	// Add event listener to input element
     	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
-	function printResults() {
-      //window.print();
-  var printContents = document.getElementById('results-container').innerHTML;
+	
+function printResults() {
+  var printContents = document.querySelector('.container').innerHTML;
   var originalContents = document.body.innerHTML;
 
   document.body.innerHTML = printContents;
@@ -2069,5 +2069,3 @@ sgpaContainer.innerHTML = '';
 
   document.body.innerHTML = originalContents;
 }
-
-    }
