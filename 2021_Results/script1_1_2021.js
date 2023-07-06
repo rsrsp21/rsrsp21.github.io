@@ -2071,14 +2071,11 @@ var studentId = document.getElementById('student-id').value.trim();
 document.getElementById('student-id').focus();
 }
  
-	function handleKeyPress(event) {
-      	if (event.keyCode === 13) { // 13 represents the Enter key
-        	displayResults();
-      	}
-    	}
-
-    	// Add event listener to input element
-    	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
+	document.getElementById('student-id').addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // Prevent form submission
+    displayResults(); // Call the displayResults() function
+  }
 	
 function printResults() {
   var printContents = document.querySelector('.container').innerHTML;
