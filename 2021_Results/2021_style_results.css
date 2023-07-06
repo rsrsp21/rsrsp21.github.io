@@ -153,8 +153,18 @@ tr:hover td {
       padding-top: 20px;
       border-top: 1px solid #dddddd;
     }
+
 @media print {
-  .container {
-    page-break-inside: avoid;
+  label[for="student-id"],
+  #student-id,
+  button[onclick="displayResults()"],
+  #student-id,
+  button,
+  .print-button,
+  .footer,
+  .cgpa-buttons {
+    display: none;
   }
+}
+
 }
