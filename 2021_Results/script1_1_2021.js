@@ -2034,11 +2034,8 @@ var clearedSupplementaryIDs = [
 
  var sgpa = calculateSGPA(studentData);
 
-var sgpaContainer = document.getElementById('sgpa-container');
-  sgpaContainer.innerHTML = '';
-
-  var sgpaHeading = document.createElement('h2');
-  sgpaHeading.textContent = 'SGPA: ' + sgpa;
+      var sgpaContainer = document.querySelector('.sgpa');
+      sgpaContainer.textContent = 'SGPA: ' + sgpa;
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
