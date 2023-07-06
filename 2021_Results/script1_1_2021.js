@@ -2048,7 +2048,6 @@ sgpaContainer.innerHTML = '';
     supplementaryResult.innerHTML = '<span style="color: green;">Congratulations!</span>';
   }
 
-  sgpaContainer.appendChild(sgpaHeading);
   sgpaContainer.appendChild(sgpaResult);
   sgpaContainer.appendChild(supplementaryResult);
   }
