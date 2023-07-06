@@ -160,11 +160,11 @@ tr:hover td {
   button[onclick="displayResults()"],
   #student-id,
   button,
-  .print-button,
   .footer,
   .cgpa-buttons {
     display: none;
   }
-}
-
+.separator + #id-container {
+    display: none;
+  }
 }
