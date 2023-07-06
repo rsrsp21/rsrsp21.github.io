@@ -2046,7 +2046,7 @@ var sgpaContainer = document.getElementById('sgpa-container');
   if (sgpa === 'Fail') {
     supplementaryResult.textContent = 'Better luck next time!';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
-    supplementaryResult.textContent = 'Cleared in Supplemenatry Appearance!';
+    supplementaryResult.textContent = 'Cleared in Supplemenatry Appearance(s).';
   } else {
     supplementaryResult.textContent = 'Congratulations!';
   }
