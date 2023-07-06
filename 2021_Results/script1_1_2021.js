@@ -2036,11 +2036,7 @@ var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
 
   var sgpaHeading = document.createElement('h2');
-  sgpaHeading.textContent = 'SGPA:';
-
-  var sgpaResult = document.createElement('p');
-  var sgpa = calculateSGPA(studentData);
-  sgpaResult.textContent = sgpa;
+  sgpaHeading.textContent = 'SGPA: ' + sgpa;
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
