@@ -2005,7 +2005,7 @@ var studentId = document.getElementById('student-id').value.trim();
 
  var idContainer = document.getElementById('id-container');
   var idHeading = idContainer.querySelector('p');
-  idHeading.textContent = 'ID: ';
+  idHeading.textContent = 'Roll Number: ';
  idHeading.style.color = 'black';
   idHeading.style.fontWeight = 'bold';
   idContainer.style.marginTop = '20px';
