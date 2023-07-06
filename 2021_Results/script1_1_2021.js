@@ -2031,25 +2031,29 @@ var clearedSupplementaryIDs = [
       table.appendChild(tableHeader);
       table.appendChild(tableBody);
       resultsContainer.appendChild(table);
+var sgpa = calculateSGPA(studentData);
+  var sgpaContainer = document.getElementById('sgpa-container');
+  sgpaContainer.innerHTML = '';
 
- var sgpa = calculateSGPA(studentData);
+  var sgpaHeading = document.createElement('h2');
+  sgpaHeading.textContent = 'Result:';
 
-      var sgpaContainer = document.querySelector('.sgpa');
-      sgpaContainer.textContent = 'SGPA: ' + sgpa;
+  var sgpaResult = document.createElement('h2');
+  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + calculateSGPA(studentData) + '</span>';
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
-    supplementaryResult.textContent = 'Better luck next time!';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Better luck next time!</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
-    supplementaryResult.textContent = 'Cleared in Supplemenatry Appearance(s).';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Cleared in supplementary appearance(s).</span>';
   } else {
-    supplementaryResult.textContent = 'Congratulations!';
+    supplementaryResult.innerHTML = '<span style="color: green;">Congratulations!</span>';
   }
 
   sgpaContainer.appendChild(sgpaHeading);
   sgpaContainer.appendChild(sgpaResult);
   sgpaContainer.appendChild(supplementaryResult);
-    }
+  }
 	function handleKeyPress(event) {
       	if (event.keyCode === 13) { // 13 represents the Enter key
         	displayResults();
