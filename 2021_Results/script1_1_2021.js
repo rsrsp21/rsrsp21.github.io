@@ -2070,17 +2070,15 @@ var studentId = document.getElementById('student-id').value.trim();
   sgpaContainer.appendChild(supplementaryResult);
 document.getElementById('student-id').focus();
 }
- 
-	var inputField = document.getElementById('student-id');
-inputField.addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-    event.preventDefault(); // Prevent form submission
-    displayResults(); // Call the displayResults() function
-  }
-});
+ function handleKeyPress(event) {
+      	if (event.keyCode === 13) { // 13 represents the Enter key
+        	displayResults();
+      	}
+    	}
 
-// Set focus to the input field on page load
-inputField.focus();
+    	// Add event listener to input element
+    	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
+
 function printResults() {
   var printContents = document.querySelector('.container').innerHTML;
   var originalContents = document.body.innerHTML;
