@@ -70,14 +70,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  border: 1px solid black; /* Add a black border to the table outline */
 }
 
 th, td {
   padding: 10px;
   text-align: left;
-  border-right: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+  border: 1px solid #dddddd; /* Add a border to each cell */
 }
 
 th {
@@ -99,23 +97,10 @@ tr:hover td {
   background-color: #ebebeb;
 }
 
-th:first-child,
-td:first-child {
-  border-left: 1px solid #dddddd; /* Add a border to the left side of the first column */
+table {
+  border: 1px solid black; /* Add a black border to the table outline */
 }
 
-th:last-child,
-td:last-child {
-  border-right: 1px solid #dddddd; /* Add a border to the right side of the last column */
-}
-
-tr:first-child th {
-  border-top: 1px solid #dddddd; /* Add a border to the top side of the table header */
-}
-
-tr:last-child td {
-  border-bottom: 1px solid #dddddd; /* Add a border to the bottom side of the last row */
-}
 
     .sgpa {
       text-align: center;
