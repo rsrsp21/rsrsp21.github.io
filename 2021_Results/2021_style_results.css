@@ -159,9 +159,10 @@ tr:hover td {
   #student-id,
   button[onclick="displayResults()"],
   #student-id,
-  button,
-  .footer,
   .cgpa-buttons {
+    display: none;
+  }
+.complain {
     display: none;
   }
 .separator + #id-container {
