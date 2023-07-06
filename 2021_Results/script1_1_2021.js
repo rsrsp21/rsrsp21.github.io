@@ -1991,75 +1991,67 @@ var clearedSupplementaryIDs = [
 ]
 
 function displayResults() {
-  var studentId = document.getElementById('student-id').value.trim();
-  if (!studentId) {
-    alert('Please enter a valid Roll Number');
-    return;
-  }
+ var studentId = document.getElementById('student-id').value.trim();
+      if (!studentId) {
+        alert('Please enter a valid Roll Number');
+        return;
+      }
 
-  var studentData = getStudentData(studentId, parseCSV(csvData));
-  if (studentData.length === 0) {
-    alert('No data found for the given Roll Number.');
-    return;
-  }
+      var studentData = getStudentData(studentId, parseCSV(csvData));
+      if (studentData.length === 0) {
+        alert('No data found for the given Roll Number.');
+        return;
+      }
+
+      var resultsContainer = document.getElementById('results-container');
+      resultsContainer.innerHTML = '';
+
+      var table = document.createElement('table');
+      var tableHeader = document.createElement('thead');
+      var tableBody = document.createElement('tbody');
+
+      var headers = Object.keys(studentData[0]);
+      var headerRow = document.createElement('tr');
+      headers.forEach(function(header) {
+        var th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+      });
+      tableHeader.appendChild(headerRow);
+
+      studentData.forEach(function(subject) {
+        var row = document.createElement('tr');
+        Object.values(subject).forEach(function(value) {
+          var td = document.createElement('td');
+          td.textContent = value;
+          row.appendChild(td);
+        });
+        tableBody.appendChild(row);
+      });
+
+      table.appendChild(tableHeader);
+      table.appendChild(tableBody);
+      resultsContainer.appendChild(table);
 
   var idContainer = document.getElementById('id-container');
   idContainer.textContent = 'ID: ' + studentId;
-
-  var resultsContainer = document.getElementById('results-container');
-  resultsContainer.innerHTML = '';
-
-  var table = document.createElement('table');
-  var tableHeader = document.createElement('thead');
-  var tableBody = document.createElement('tbody');
-
-  var headers = Object.keys(studentData[0]);
-  var headerRow = document.createElement('tr');
-  headers.forEach(function(header) {
-    if (header !== 'ID') {
-      var th = document.createElement('th');
-      th.textContent = header;
-      headerRow.appendChild(th);
-    }
-  });
-  tableHeader.appendChild(headerRow);
-
-  studentData.forEach(function(subject) {
-    var row = document.createElement('tr');
-    Object.entries(subject).forEach(function([key, value]) {
-      if (key !== 'ID') {
-        var td = document.createElement('td');
-        td.textContent = value;
-        row.appendChild(td);
-      }
-    });
-    tableBody.appendChild(row);
-  });
-
-  table.appendChild(tableHeader);
-  table.appendChild(tableBody);
-  resultsContainer.appendChild(table);
-
+	
   var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
 
-  var sgpaHeading = document.createElement('h2');
-  sgpaHeading.textContent = 'SGPA:';
-
   var sgpaResult = document.createElement('p');
   var sgpa = calculateSGPA(studentData);
-  sgpaResult.innerHTML = '<span style="color: black;">SGPA : <span style="color: red;">' + sgpa + '</span></span>';
+  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
-    supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time</span>';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Better luck next time</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
-    supplementaryResult.innerHTML = '<span style="color: blue;">Cleared in supplementary appearance(s)</span>';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Cleared in supplementary appearance</span>';
   } else {
-    supplementaryResult.innerHTML = '<span style="color: green;">Congratulations</span>';
+    supplementaryResult.innerHTML = '<span style="color: green;">Message: Congratulations</span>';
   }
 
-  sgpaContainer.appendChild(sgpaHeading);
   sgpaContainer.appendChild(sgpaResult);
   sgpaContainer.appendChild(supplementaryResult);
 }
