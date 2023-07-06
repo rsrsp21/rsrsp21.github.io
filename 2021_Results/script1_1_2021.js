@@ -2060,5 +2060,14 @@ sgpaContainer.innerHTML = '';
     	// Add event listener to input element
     	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
 	function printResults() {
-      window.print();
+      //window.print();
+  var printContents = document.getElementById('results-container').innerHTML;
+  var originalContents = document.body.innerHTML;
+
+  document.body.innerHTML = printContents;
+  window.print();
+
+  document.body.innerHTML = originalContents;
+}
+
     }
