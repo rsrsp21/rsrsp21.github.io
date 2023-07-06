@@ -2037,7 +2037,7 @@ sgpaContainer.innerHTML = '';
 
   var sgpaResult = document.createElement('p');
   var sgpa = calculateSGPA(studentData);
-  sgpaResult.innerHTML = '<span style="color: black;">SGPA : <span style="color: red;">' + sgpa + '</span></span>';
+  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
