@@ -28,6 +28,11 @@ h2 {
       margin-bottom: 20px;
       font-size: 30px;
     }
+h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 40px;
+    }
 
     label {
       display: flex;
