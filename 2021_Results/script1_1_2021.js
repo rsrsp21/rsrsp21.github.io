@@ -1,4 +1,4 @@
-var csvData = `ID,Subject Code,Subject,Grade,Credits
+var csvData = `ID,Subject Code,Subject Name,Grade,Credits
 21031A0101,R201101,MATHEMATICS - I,F,0
 21031A0101,R201102,COMMUNICATIVE ENGLISH,F,0
 21031A0101,R201103,ENGINEERING PHYSICS,F,0
