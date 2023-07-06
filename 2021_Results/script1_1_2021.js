@@ -2068,6 +2068,7 @@ var studentId = document.getElementById('student-id').value.trim();
 
   sgpaContainer.appendChild(sgpaResult);
   sgpaContainer.appendChild(supplementaryResult);
+document.getElementById('student-id').focus();
 }
  
 	function handleKeyPress(event) {
