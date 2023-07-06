@@ -2003,8 +2003,15 @@ var studentId = document.getElementById('student-id').value.trim();
     return;
   }
 
-  var idContainer = document.getElementById('id-container');
-  idContainer.textContent = 'ID: ' + studentId;
+ var idContainer = document.getElementById('id-container');
+  var idHeading = idContainer.querySelector('h3');
+  idHeading.textContent = 'ID:';
+  idHeading.style.fontWeight = 'bold';
+  idContainer.style.marginTop = '20px';
+
+  var idValue = document.createElement('span');
+  idValue.textContent = ' ' + studentId;
+  idHeading.appendChild(idValue);
 
   var resultsContainer = document.getElementById('results-container');
   resultsContainer.innerHTML = '';
@@ -2039,16 +2046,6 @@ var studentId = document.getElementById('student-id').value.trim();
   table.appendChild(tableHeader);
   table.appendChild(tableBody);
   resultsContainer.appendChild(table);
-
-var idContainer = document.getElementById('id-container');
-  var idHeading = idContainer.querySelector('h3');
-  idHeading.textContent = 'ID:';
-  idHeading.style.fontWeight = 'bold';
-  idContainer.style.marginTop = '20px';
-
-  var idValue = document.createElement('span');
-  idValue.textContent = ' ' + studentId;
-  idHeading.appendChild(idValue);
 	
   var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
