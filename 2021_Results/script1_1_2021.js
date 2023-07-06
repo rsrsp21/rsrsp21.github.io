@@ -2006,7 +2006,7 @@ var studentId = document.getElementById('student-id').value.trim();
  var idContainer = document.getElementById('id-container');
   var idHeading = idContainer.querySelector('p');
   idHeading.textContent = 'ID: ';
- // idHeading.style.color = 'red';
+ idHeading.style.color = 'black';
   idHeading.style.fontWeight = 'bold';
   idContainer.style.marginTop = '20px';
 
@@ -2059,11 +2059,11 @@ var studentId = document.getElementById('student-id').value.trim();
 
   var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
-    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Better luck next time</span>';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time!</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
-    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Cleared in supplementary appearance</span>';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Passed. Cleared in supplementary appearance(s).</span>';
   } else {
-    supplementaryResult.innerHTML = '<span style="color: green;">Message: Congratulations</span>';
+    supplementaryResult.innerHTML = '<span style="color: green;">Congratulations! You have passed!</span>';
   }
 
   sgpaContainer.appendChild(sgpaResult);
