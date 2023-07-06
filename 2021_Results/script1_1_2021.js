@@ -2035,13 +2035,13 @@ var sgpa = calculateSGPA(studentData);
   var sgpaContainer = document.getElementById('sgpa-container');
   sgpaContainer.innerHTML = '';
 
-  var sgpaHeading = document.createElement('h2');
-  sgpaHeading.textContent = 'Result:';
+  //var sgpaHeading = document.createElement('h2');
+ // sgpaHeading.textContent = 'Result:';
 
-  var sgpaResult = document.createElement('h2');
+  var sgpaResult = document.createElement('p');
   sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
 
-  var supplementaryResult = document.createElement('h3');
+  var supplementaryResult = document.createElement('h2');
   if (sgpa === 'Fail') {
     supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time!</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
