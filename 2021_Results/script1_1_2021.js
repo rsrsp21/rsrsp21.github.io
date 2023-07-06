@@ -2071,12 +2071,16 @@ var studentId = document.getElementById('student-id').value.trim();
 document.getElementById('student-id').focus();
 }
  
-	document.getElementById('student-id').addEventListener('keypress', function(event) {
+	var inputField = document.getElementById('student-id');
+inputField.addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
     event.preventDefault(); // Prevent form submission
     displayResults(); // Call the displayResults() function
   }
-	
+});
+
+// Set focus to the input field on page load
+inputField.focus();
 function printResults() {
   var printContents = document.querySelector('.container').innerHTML;
   var originalContents = document.body.innerHTML;
