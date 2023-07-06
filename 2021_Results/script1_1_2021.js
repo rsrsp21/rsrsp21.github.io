@@ -2039,7 +2039,7 @@ sgpaContainer.innerHTML = '';
   var sgpa = calculateSGPA(studentData);
   sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
 
-  var supplementaryResult = document.createElement('h2');
+  var supplementaryResult = document.createElement('p');
   if (sgpa === 'Fail') {
     supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time!</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
