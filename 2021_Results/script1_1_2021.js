@@ -2039,11 +2039,11 @@ var sgpa = calculateSGPA(studentData);
   sgpaHeading.textContent = 'Result:';
 
   var sgpaResult = document.createElement('h2');
-  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + calculateSGPA(studentData) + '</span>';
+  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
 
-  var supplementaryResult = document.createElement('p');
+  var supplementaryResult = document.createElement('h3');
   if (sgpa === 'Fail') {
-    supplementaryResult.innerHTML = '<span style="color: blue;">Message: Better luck next time!</span>';
+    supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time!</span>';
   } else if (clearedSupplementaryIDs.includes(studentId)) {
     supplementaryResult.innerHTML = '<span style="color: blue;">Cleared in supplementary appearance(s).</span>';
   } else {
