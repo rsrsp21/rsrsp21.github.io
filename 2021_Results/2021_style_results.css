@@ -77,8 +77,10 @@ th, td {
   text-align: left;
   border: 1px solid #dddddd; /* Add a border to each cell */
 white-space: normal;
-  word-break: break-all;
-}
+  word-break: break-word;
+  max-width: 300px; /* Adjust the maximum width as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 th {
   background-color: #f2f2f2;
@@ -172,8 +174,9 @@ tr:hover td {
 }
 @media (max-width: 768px) {
   td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    max-width: none;
+    overflow: visible;
+    text-overflow: unset;
   }
 }
