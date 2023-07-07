@@ -76,6 +76,7 @@ th, td {
   padding: 10px;
   text-align: left;
   border: 1px solid #dddddd; /* Add a border to each cell */
+word-break: break-word;
 }
 
 th {
@@ -169,9 +170,7 @@ tr:hover td {
 }
 }
 @media (max-width: 768px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+  td {
+    white-space: normal;
   }
 }
