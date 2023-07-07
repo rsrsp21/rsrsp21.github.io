@@ -174,7 +174,7 @@ tr:hover td {
 }
 }
 @media (max-width: 768px) {
-  td {
+  th, td {
     white-space: normal;
     max-width: none;
     overflow: visible;
