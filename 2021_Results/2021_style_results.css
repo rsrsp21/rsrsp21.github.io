@@ -181,3 +181,9 @@ tr:hover td {
     text-overflow: unset;
   }
 }
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #ffffff;
+    background-color: #111111;
+  }
+}
