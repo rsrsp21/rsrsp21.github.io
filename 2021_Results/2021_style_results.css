@@ -170,11 +170,8 @@ tr:hover td {
 }
 @media (max-width: 768px) {
   table {
-    width: auto;
-  }
-
-  th,
-  td {
+    display: block;
+    overflow-x: auto;
     white-space: nowrap;
   }
 }
