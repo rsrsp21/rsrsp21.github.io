@@ -78,7 +78,7 @@ th, td {
   border: 1px solid #dddddd; /* Add a border to each cell */
 white-space: normal;
   word-break: break-word;
-  max-width: 300px; /* Adjust the maximum width as needed */
+  max-width: 480px; /* Adjust the maximum width as needed */
   overflow: hidden;
   text-overflow: ellipsis;
 }
