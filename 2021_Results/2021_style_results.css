@@ -117,7 +117,7 @@ tr:hover td {
     }
 
     .logo img {
-      width: 700px;
+      max-width: 100%;
       height: auto;
     }
 
