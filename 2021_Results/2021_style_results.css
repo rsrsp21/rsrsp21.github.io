@@ -81,7 +81,7 @@ white-space: normal;
   max-width: 300px; /* Adjust the maximum width as needed */
   overflow: hidden;
   text-overflow: ellipsis;
-
+}
 th {
   background-color: #f2f2f2;
   font-weight: bold;
