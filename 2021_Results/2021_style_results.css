@@ -67,7 +67,7 @@ p {
     }
 
 table {
-  max-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
@@ -167,4 +167,14 @@ tr:hover td {
 .complain{
 	display: none;
 }
+}
+@media (max-width: 768px) {
+  table {
+    width: auto;
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+  }
 }
