@@ -2140,56 +2140,91 @@ var csvData = `ID,Subject,Grade,Credits
       return sgpa;
     }
 
-    
-    function displayResults() {
-      var studentId = document.getElementById('student-id').value.trim();
-      if (!studentId) {
-        alert('Please enter a valid Roll Number.');
-        return;
-      }
+var clearedSupplementaryIDs = [
+'21031A0101','21031A0102','21031A0105','21031A0106','21031A0107','21031A0108','21031A0109','21031A0110','21031A0112','21031A0113','21031A0116','21031A0117','21031A0118','21031A0119','21031A0120','21031A0122','21031A0123','21031A0125','21031A0127','21031A0128','21031A0129','21031A0130','21031A0131','21031A0132','21031A0133','21031A0134','21031A0135','21031A0136','21031A0137','21031A0138','21031A0139','21031A0201','21031A0202','21031A0203','21031A0204','21031A0207','21031A0209','21031A0210','21031A0212','21031A0213','21031A0214','21031A0215','21031A0216','21031A0217','21031A0218','21031A0219','21031A0220','21031A0221','21031A0222','21031A0223','21031A0225','21031A0226','21031A0227','21031A0229','21031A0233','21031A0236','21031A0237','21031A0238','21031A0302','21031A0305','21031A0306','21031A0307','21031A0309','21031A0310','21031A0311','21031A0312','21031A0313','21031A0314','21031A0315','21031A0316','21031A0317','21031A0318','21031A0319','21031A0320','21031A0321','21031A0322','21031A0324','21031A0325','21031A0326','21031A0328','21031A0329','21031A0330','21031A0401','21031A0402','21031A0403','21031A0405','21031A0406','21031A0407','21031A0411','21031A0413','21031A0414','21031A0418','21031A0419','21031A0422','21031A0424','21031A0425','21031A0426','21031A0428','21031A0430','21031A0431','21031A0433','21031A0434','21031A0437','21031A0438','21031A0448','21031A0449','21031A0450','21031A0451','21031A0452','21031A0453','21031A0455','21031A0457','21031A0458','21031A0460','21031A0461','21031A0504','21031A0505','21031A0510','21031A0525','21031A0526','21031A0539','21031A0542','21031A0555','21031A0559','21031A0560','21031A0562'
+]
 
-      var studentData = getStudentData(studentId, parseCSV(csvData));
-      if (studentData.length === 0) {
-        alert('No data found for the given Roll Number.');
-        return;
-      }
+function displayResults() {
+var studentId = document.getElementById('student-id').value.trim();
+  if (!studentId) {
+    alert('Please enter a valid Roll Number');
+    return;
+  }
 
-      var resultsContainer = document.getElementById('results-container');
-      resultsContainer.innerHTML = '';
+  var studentData = getStudentData(studentId, parseCSV(csvData));
+  if (studentData.length === 0) {
+    alert('No data found for the given Roll Number.');
+    return;
+  }
 
-      var table = document.createElement('table');
-      var tableHeader = document.createElement('thead');
-      var tableBody = document.createElement('tbody');
+ var idContainer = document.getElementById('id-container');
+  var idHeading = idContainer.querySelector('p');
+  idHeading.textContent = 'Roll Number: ';
+ idHeading.style.color = 'black';
+  idHeading.style.fontWeight = 'bold';
+  idContainer.style.marginTop = '20px';
 
-      var headers = Object.keys(studentData[0]);
-      var headerRow = document.createElement('tr');
-      headers.forEach(function(header) {
-        var th = document.createElement('th');
-        th.textContent = header;
-        headerRow.appendChild(th);
-      });
-      tableHeader.appendChild(headerRow);
+  var idValue = document.createElement('span');
+  idValue.textContent = studentId;
+  idValue.style.color = 'red';
+  idValue.style.fontWeight = 'bold';
+  idHeading.appendChild(idValue);
 
-      studentData.forEach(function(subject) {
-        var row = document.createElement('tr');
-        Object.values(subject).forEach(function(value) {
-          var td = document.createElement('td');
-          td.textContent = value;
-          row.appendChild(td);
-        });
-        tableBody.appendChild(row);
-      });
+  var resultsContainer = document.getElementById('results-container');
+  resultsContainer.innerHTML = '';
 
-      table.appendChild(tableHeader);
-      table.appendChild(tableBody);
-      resultsContainer.appendChild(table);
+  var table = document.createElement('table');
+  var tableHeader = document.createElement('thead');
+  var tableBody = document.createElement('tbody');
 
-      var sgpa = calculateSGPA(studentData);
-
-      var sgpaContainer = document.querySelector('.sgpa');
-      sgpaContainer.textContent = 'SGPA: ' + sgpa;
+  var headers = Object.keys(studentData[0]);
+  var headerRow = document.createElement('tr');
+  headers.forEach(function(header) {
+    if (header !== 'ID') {
+      var th = document.createElement('th');
+      th.textContent = header;
+      headerRow.appendChild(th);
     }
-	function handleKeyPress(event) {
+  });
+  tableHeader.appendChild(headerRow);
+
+  studentData.forEach(function(subject) {
+    var row = document.createElement('tr');
+    Object.entries(subject).forEach(function([key, value]) {
+      if (key !== 'ID') {
+        var td = document.createElement('td');
+        td.textContent = value;
+        row.appendChild(td);
+      }
+    });
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableHeader);
+  table.appendChild(tableBody);
+  resultsContainer.appendChild(table);
+	
+  var sgpaContainer = document.getElementById('sgpa-container');
+  sgpaContainer.innerHTML = '';
+
+  var sgpaResult = document.createElement('h3');
+  var sgpa = calculateSGPA(studentData);
+  sgpaResult.innerHTML = '<span style="color: black;">SGPA : </span><span style="color: red;">' + sgpa + '</span>';
+
+  var supplementaryResult = document.createElement('p');
+  if (sgpa === 'Fail') {
+    supplementaryResult.innerHTML = '<span style="color: blue;">Better luck next time!</span>';
+  } else if (clearedSupplementaryIDs.includes(studentId)) {
+    supplementaryResult.innerHTML = '<span style="color: blue;">Passed. Cleared in supplementary appearance(s).</span>';
+  } else {
+    supplementaryResult.innerHTML = '<span style="color: green;">Congratulations! You have passed!</span>';
+  }
+
+  sgpaContainer.appendChild(sgpaResult);
+  sgpaContainer.appendChild(supplementaryResult);
+document.getElementById('student-id').focus();
+}
+ function handleKeyPress(event) {
       	if (event.keyCode === 13) { // 13 represents the Enter key
         	displayResults();
       	}
@@ -2197,6 +2232,13 @@ var csvData = `ID,Subject,Grade,Credits
 
     	// Add event listener to input element
     	document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
-	function printResults() {
-      window.print();
-    }
+
+function printResults() {
+  var printContents = document.querySelector('.container').innerHTML;
+  var originalContents = document.body.innerHTML;
+
+  document.body.innerHTML = printContents;
+  window.print();
+
+  document.body.innerHTML = originalContents;
+}
