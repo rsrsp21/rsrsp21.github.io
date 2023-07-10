@@ -454,14 +454,11 @@ function displayResults() {
       var valueCell = document.createElement('td');
       var value = studentData[0][key] === '' ? 'NA' : studentData[0][key];
       if (key === 'Supplementary Appearances') {
-        valueCell.innerHTML = '<span style="color: blue; font-weight: bold">' + value + '</span>';
-      } else {
-        valueCell.textContent = value;
-        if (value === 'NA' || value === '**') {
-          valueCell.style.fontWeight = 'bold';
-          valueCell.style.color = 'black';
-        }
+        labelCell.style.color = 'blue';
+        valueCell.style.fontWeight = 'bold';
+        valueCell.style.color = 'black';
       }
+      valueCell.textContent = value;
       row.appendChild(valueCell);
 
       tableBody.appendChild(row);
