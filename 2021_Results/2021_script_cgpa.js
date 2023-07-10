@@ -427,7 +427,7 @@ function displayResults() {
   }
 
 var idContainer = document.getElementById('id-container');
-  var idHeading = idContainer.querySelector('p');
+  var idHeading = idContainer.querySelector('h3');
   idHeading.textContent = 'Roll Number: ';
  idHeading.style.color = 'black';
   idHeading.style.fontWeight = 'bold';
@@ -472,7 +472,7 @@ resultsContainer.appendChild(table);
    var cgpaContainer = document.getElementById('cgpa-container');
   cgpaContainer.innerHTML = '';
 
-  var cgpaResult = document.createElement('h3');
+  var cgpaResult = document.createElement('h2');
   cgpaResult.innerHTML = '<span style="color: black;">CGPA : </span><span style="color: red;">' + studentData[0]['CGPA'] + '</span>';
 
   cgpaContainer.appendChild(cgpaResult);
