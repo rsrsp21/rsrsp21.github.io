@@ -478,5 +478,11 @@ function displayResults() {
   document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
 
   function printResults() {
-    window.print();
-  }
+var printContents = document.querySelector('.container').innerHTML;
+var originalContents = document.body.innerHTML;
+
+document.body.innerHTML = printContents;
+window.print();
+
+document.body.innerHTML = originalContents;
+}
