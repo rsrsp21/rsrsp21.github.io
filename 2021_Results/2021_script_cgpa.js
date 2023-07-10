@@ -452,7 +452,16 @@ function displayResults() {
       row.appendChild(labelCell);
 
       var valueCell = document.createElement('td');
-      valueCell.textContent = studentData[0][key] === '' ? 'NA' : studentData[0][key];
+      var value = studentData[0][key] === '' ? 'NA' : studentData[0][key];
+      if (key === 'Supplementary Appearances') {
+        valueCell.innerHTML = '<span style="color: blue; font-weight: bold">' + value + '</span>';
+      } else {
+        valueCell.textContent = value;
+        if (value === 'NA' || value === '**') {
+          valueCell.style.fontWeight = 'bold';
+          valueCell.style.color = 'black';
+        }
+      }
       row.appendChild(valueCell);
 
       tableBody.appendChild(row);
