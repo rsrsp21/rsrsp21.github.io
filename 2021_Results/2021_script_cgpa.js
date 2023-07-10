@@ -413,6 +413,7 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
     table.appendChild(tableBody);
     resultsContainer.appendChild(table);
   }*/
+var message = '';
 function displayResults() {
   var studentId = document.getElementById('student-id').value.trim();
   if (!studentId) {
@@ -472,24 +473,23 @@ function displayResults() {
   cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
   cgpaContainer.appendChild(cgpaHeading);
 
-    var messageContainer = document.getElementById('message-container');
-  messageContainer.innerHTML = '';
-
   var cgpa = parseFloat(studentData[0]['CGPA']);
   var supplementaryAppearances = studentData[0]['Supplementary Appearances'];
-  var message = '';
 
   if (cgpa >= 7.75 && supplementaryAppearances === 'NA') {
     message = 'First Class with Distinction';
-  } /*else if (cgpa >= 6.75) {
+  } else if (cgpa >= 6.75) {
     message = 'First Class';
-  }*/ else if (cgpa >= 5.75 && cgpa < 6.75) {
+  } else if (cgpa >= 5.75 && cgpa < 6.75) {
     message = 'Second Class';
   } else if (cgpa >= 5 && cgpa < 5.75) {
     message = 'Pass Class';
   } else {
   message = 'Not Applicable';
 }
+
+var messageContainer = document.getElementById('message-container');
+  messageContainer.innerHTML = '';
 
 if (message !== '') {
   var messageElement = document.createElement('h3');
