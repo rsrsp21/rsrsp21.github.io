@@ -413,7 +413,8 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
     table.appendChild(tableBody);
     resultsContainer.appendChild(table);
   }*/
-var message = '';
+var message = ''; // Declare the message variable outside the function
+
 function displayResults() {
   var studentId = document.getElementById('student-id').value.trim();
   if (!studentId) {
@@ -478,27 +479,26 @@ function displayResults() {
 
   if (cgpa >= 7.75 && supplementaryAppearances === 'NA') {
     message = 'First Class with Distinction';
-  } else if ((cgpa >= 6.75 && cgpa < 7.75 && supplementaryAppearances === 'NA') || (cgpa >= 6.75 && supplementaryAppearances !== 'NA')) {
+  } else if (cgpa >= 6.75) {
     message = 'First Class';
-  } else if (cgpa >= 5.75 && cgpa < 6.75) {
+  } else if (cgpa >= 5.75) {
     message = 'Second Class';
-  } else if (cgpa >= 5 && cgpa < 5.75) {
+  } else if (cgpa >= 5) {
     message = 'Pass Class';
   } else {
-  message = 'Not Applicable';
-}
+    message = 'Not Applicable';
+  }
 
-var messageContainer = document.getElementById('message-container');
+  var messageContainer = document.getElementById('message-container');
   messageContainer.innerHTML = '';
 
-if (message !== '') {
-  var messageElement = document.createElement('h3');
-  messageElement.textContent = message;
-  messageElement.style.color = 'green';
-  messageElement.style.fontWeight = 'bold';
-  messageContainer.appendChild(messageElement);
-}
-
+  if (message !== '') {
+    var messageElement = document.createElement('h3');
+    messageElement.textContent = message;
+    messageElement.style.color = 'green';
+    messageElement.style.fontWeight = 'bold';
+    messageContainer.appendChild(messageElement);
+  }
 }
 
   function handleKeyPress(event) {
