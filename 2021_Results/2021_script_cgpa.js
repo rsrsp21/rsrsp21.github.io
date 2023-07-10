@@ -467,6 +467,7 @@ var idContainer = document.getElementById('id-container');
       tableBody.appendChild(row);
     }
   });
+resultsContainer.appendChild(table);
 
    var cgpaContainer = document.getElementById('cgpa-container');
   cgpaContainer.innerHTML = '';
