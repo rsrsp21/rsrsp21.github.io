@@ -477,7 +477,7 @@ function displayResults() {
   var cgpa = parseFloat(studentData[0]['CGPA']);
   var supplementaryAppearances = studentData[0]['Supplementary Appearances'];
 
-  if (cgpa >= 7.75 && supplementaryAppearances === 'NA') {
+  if (cgpa >= 7.75 && (supplementaryAppearances === 'NA' || supplementaryAppearances === '')) {
     message = 'First Class with Distinction';
   } else if (cgpa >= 6.75) {
     message = 'First Class';
