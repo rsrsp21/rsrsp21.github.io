@@ -429,13 +429,22 @@ function displayResults() {
   var resultsContainer = document.getElementById('results-container');
   resultsContainer.innerHTML = '';
 
+  var idContainer = document.createElement('div');
+  idContainer.style.textAlign = 'center';
+  resultsContainer.appendChild(idContainer);
+
   var idHeading = document.createElement('h3');
-  idHeading.style.textAlign = 'center';
   idHeading.innerHTML = '<span style="color: black; font-weight: bold">ID: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
-  resultsContainer.appendChild(idHeading);
+  idContainer.appendChild(idHeading);
+
+  var tableContainer = document.createElement('div');
+  resultsContainer.appendChild(tableContainer);
 
   var table = document.createElement('table');
+  tableContainer.appendChild(table);
+
   var tableBody = document.createElement('tbody');
+  table.appendChild(tableBody);
 
   var keys = Object.keys(studentData[0]);
   keys.forEach(function (key) {
@@ -454,13 +463,13 @@ function displayResults() {
     }
   });
 
-  table.appendChild(tableBody);
-  resultsContainer.appendChild(table);
+  var cgpaContainer = document.createElement('div');
+  cgpaContainer.style.textAlign = 'center';
+  resultsContainer.appendChild(cgpaContainer);
 
   var cgpaHeading = document.createElement('h2');
-  cgpaHeading.style.textAlign = 'center';
   cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
-  resultsContainer.appendChild(cgpaHeading);
+  cgpaContainer.appendChild(cgpaHeading);
 }
 
   function handleKeyPress(event) {
