@@ -426,10 +426,10 @@ function displayResults() {
     return;
   }
 
-var idContainer = document.getElementById('id-container');
+  var idContainer = document.getElementById('id-container');
   var idHeading = idContainer.querySelector('h3');
   idHeading.textContent = 'Roll Number: ';
- idHeading.style.color = 'black';
+  idHeading.style.color = 'black';
   idHeading.style.fontWeight = 'bold';
   idContainer.style.marginTop = '20px';
 
@@ -467,9 +467,10 @@ var idContainer = document.getElementById('id-container');
       tableBody.appendChild(row);
     }
   });
-resultsContainer.appendChild(table);
 
-   var cgpaContainer = document.getElementById('cgpa-container');
+  tableContainer.appendChild(table);
+
+  var cgpaContainer = document.getElementById('cgpa-container');
   cgpaContainer.innerHTML = '';
 
   var cgpaResult = document.createElement('h2');
