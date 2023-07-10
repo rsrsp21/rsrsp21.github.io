@@ -433,11 +433,8 @@ function displayResults() {
   idHeading.innerHTML = '<span style="color: black; font-weight: bold">ID: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
   idContainer.appendChild(idHeading);
 
-  var resultsContainer = document.getElementById('results-container');
-  resultsContainer.innerHTML = '';
-
-  var tableContainer = document.createElement('div');
-  resultsContainer.appendChild(tableContainer);
+  var tableContainer = document.getElementById('table-container');
+  tableContainer.innerHTML = '';
 
   var table = document.createElement('table');
   tableContainer.appendChild(table);
