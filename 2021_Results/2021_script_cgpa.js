@@ -429,10 +429,15 @@ function displayResults() {
   var resultsContainer = document.getElementById('results-container');
   resultsContainer.innerHTML = '';
 
-  var idHeading = document.createElement('h3');
-  idHeading.style.fontWeight = 'bold';
-  idHeading.innerHTML = '<span style="color: red; font-weight: bold">ID: ' + studentId + '</span>';
+  var idHeading = document.createElement('h2');
+  idHeading.style.textAlign = 'center';
+  idHeading.innerHTML = '<span style="color: red; font-weight: bold">' + studentId + '</span>';
   resultsContainer.appendChild(idHeading);
+
+  var cgpaHeading = document.createElement('h2');
+  cgpaHeading.style.textAlign = 'center';
+  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
+  resultsContainer.appendChild(cgpaHeading);
 
   var table = document.createElement('table');
   var tableBody = document.createElement('tbody');
@@ -453,19 +458,6 @@ function displayResults() {
       tableBody.appendChild(row);
     }
   });
-
-  var cgpaRow = document.createElement('tr');
-  var cgpaHeaderCell = document.createElement('td');
-  cgpaHeaderCell.textContent = 'CGPA';
-  cgpaHeaderCell.style.fontWeight = 'bold';
-  cgpaRow.appendChild(cgpaHeaderCell);
-
-  var cgpaValueCell = document.createElement('td');
-  cgpaValueCell.style.fontWeight = 'bold';
-  cgpaValueCell.innerHTML = '<span style="color: red; font-weight: bold">CGPA: ' + studentData[0]['CGPA'] + '</span>'; // Modify the display format for CGPA
-  cgpaRow.appendChild(cgpaValueCell);
-
-  tableBody.appendChild(cgpaRow);
 
   table.appendChild(tableBody);
   resultsContainer.appendChild(table);
