@@ -366,7 +366,7 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
     return studentData;
   }
 
-  function displayResults() {
+  /*function displayResults() {
     var studentId = document.getElementById('student-id').value.trim();
     if (!studentId) {
       alert('Please enter a valid Roll Number.');
@@ -412,7 +412,64 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
     table.appendChild(tableHeader);
     table.appendChild(tableBody);
     resultsContainer.appendChild(table);
+  }*/
+function displayResults() {
+  var studentId = document.getElementById('student-id').value.trim();
+  if (!studentId) {
+    alert('Please enter a valid Roll Number.');
+    return;
   }
+
+  var studentData = getStudentData(studentId, parseCSV(csvData));
+  if (studentData.length === 0) {
+    alert('No data found for the given Roll Number.');
+    return;
+  }
+
+  var resultsContainer = document.getElementById('results-container');
+  resultsContainer.innerHTML = '';
+
+  var idHeading = document.createElement('h3');
+  idHeading.style.fontWeight = 'bold';
+  idHeading.innerHTML = '<span style="color: red; font-weight: bold">ID: ' + studentId + '</span>';
+  resultsContainer.appendChild(idHeading);
+
+  var table = document.createElement('table');
+  var tableBody = document.createElement('tbody');
+
+  var keys = Object.keys(studentData[0]);
+  keys.forEach(function (key) {
+    if (key !== 'ID' && key !== 'CGPA') {
+      var row = document.createElement('tr');
+      var labelCell = document.createElement('td');
+      labelCell.textContent = key;
+      labelCell.style.fontWeight = 'bold';
+      row.appendChild(labelCell);
+
+      var valueCell = document.createElement('td');
+      valueCell.textContent = studentData[0][key] === '' ? 'NA' : studentData[0][key];
+      row.appendChild(valueCell);
+
+      tableBody.appendChild(row);
+    }
+  });
+
+  var cgpaRow = document.createElement('tr');
+  var cgpaHeaderCell = document.createElement('td');
+  cgpaHeaderCell.textContent = 'CGPA';
+  cgpaHeaderCell.style.fontWeight = 'bold';
+  cgpaRow.appendChild(cgpaHeaderCell);
+
+  var cgpaValueCell = document.createElement('td');
+  cgpaValueCell.style.fontWeight = 'bold';
+  cgpaValueCell.innerHTML = '<span style="color: red; font-weight: bold">CGPA: ' + studentData[0]['CGPA'] + '</span>'; // Modify the display format for CGPA
+  cgpaRow.appendChild(cgpaValueCell);
+
+  tableBody.appendChild(cgpaRow);
+
+  table.appendChild(tableBody);
+  resultsContainer.appendChild(table);
+}
 
   function handleKeyPress(event) {
     if (event.keyCode === 13) {
