@@ -426,16 +426,21 @@ function displayResults() {
     return;
   }
 
+var idContainer = document.getElementById('id-container');
+  var idHeading = idContainer.querySelector('p');
+  idHeading.textContent = 'Roll Number: ';
+ idHeading.style.color = 'black';
+  idHeading.style.fontWeight = 'bold';
+  idContainer.style.marginTop = '20px';
+
+  var idValue = document.createElement('span');
+  idValue.textContent = studentId;
+  idValue.style.color = 'red';
+  idValue.style.fontWeight = 'bold';
+  idHeading.appendChild(idValue);
+
   var resultsContainer = document.getElementById('results-container');
   resultsContainer.innerHTML = '';
-
-  var idContainer = document.createElement('div');
-  idContainer.style.textAlign = 'center';
-  resultsContainer.appendChild(idContainer);
-
-  var idHeading = document.createElement('h3');
-  idHeading.innerHTML = '<span style="color: black; font-weight: bold">ID: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
-  idContainer.appendChild(idHeading);
 
   var tableContainer = document.createElement('div');
   resultsContainer.appendChild(tableContainer);
@@ -463,13 +468,13 @@ function displayResults() {
     }
   });
 
-  var cgpaContainer = document.createElement('div');
-  cgpaContainer.style.textAlign = 'center';
-  resultsContainer.appendChild(cgpaContainer);
+   var cgpaContainer = document.getElementById('cgpa-container');
+  cgpaContainer.innerHTML = '';
 
-  var cgpaHeading = document.createElement('h2');
-  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
-  cgpaContainer.appendChild(cgpaHeading);
+  var cgpaResult = document.createElement('h3');
+  cgpaResult.innerHTML = '<span style="color: black;">CGPA : </span><span style="color: red;">' + studentData[0]['CGPA'] + '</span>';
+
+  cgpaContainer.appendChild(cgpaResult);
 }
 
   function handleKeyPress(event) {
