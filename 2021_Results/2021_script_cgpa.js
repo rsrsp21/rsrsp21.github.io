@@ -366,53 +366,6 @@ var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
     return studentData;
   }
 
-  /*function displayResults() {
-    var studentId = document.getElementById('student-id').value.trim();
-    if (!studentId) {
-      alert('Please enter a valid Roll Number.');
-      return;
-    }
-
-    var studentData = getStudentData(studentId, parseCSV(csvData));
-    if (studentData.length === 0) {
-      alert('No data found for the given Roll Number.');
-      return;
-    }
-
-    var resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = '';
-
-    var table = document.createElement('table');
-    var tableHeader = document.createElement('thead');
-    var tableBody = document.createElement('tbody');
-
-    var headers = Object.keys(studentData[0]);
-
-    var headerRow = document.createElement('tr');
-    headers.forEach(function (header) {
-      var th = document.createElement('th');
-      th.textContent = header;
-      headerRow.appendChild(th);
-    });
-    tableHeader.appendChild(headerRow);
-
-    studentData.forEach(function (subject) {
-      var row = document.createElement('tr');
-      headers.forEach(function (header) {
-        var td = document.createElement('td');
-        td.textContent = subject[header] === '' ? 'NA' : subject[header];
-        if (header === 'CGPA') {
-          td.style.fontWeight = 'bold'; // Make CGPA value bold
-        }
-        row.appendChild(td);
-      });
-      tableBody.appendChild(row);
-    });
-
-    table.appendChild(tableHeader);
-    table.appendChild(tableBody);
-    resultsContainer.appendChild(table);
-  }*/
 var message = ''; // Declare the message variable outside the function
 
 function displayResults() {
