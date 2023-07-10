@@ -481,7 +481,7 @@ function displayResults() {
 
   if (cgpa >= 7.75 && supplementaryAppearances === 'NA') {
     message = 'First Class with Distinction';
-  } else if (cgpa >= 6.75) {
+  } else if ((cgpa >= 6.75 && cgpa < 7.75 && supplementaryAppearances == 'NA') || (cgpa >= 6.75 && supplementaryAppearances != 'NA')) {
     message = 'First Class';
   } else if (cgpa >= 5.75 && cgpa < 6.75) {
     message = 'Second Class';
