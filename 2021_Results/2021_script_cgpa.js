@@ -431,7 +431,7 @@ function displayResults() {
 
   var idHeading = document.createElement('h3');
   idHeading.style.textAlign = 'center';
-  idHeading.innerHTML = '<span style="color: black; font-weight: bold">Roll Number : </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
+  idHeading.innerHTML = '<span style="color: black; font-weight: bold">ID: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
   resultsContainer.appendChild(idHeading);
 
   var table = document.createElement('table');
@@ -457,9 +457,9 @@ function displayResults() {
   table.appendChild(tableBody);
   resultsContainer.appendChild(table);
 
-  var cgpaHeading = document.createElement('h3');
+  var cgpaHeading = document.createElement('h2');
   cgpaHeading.style.textAlign = 'center';
-  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA : </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
+  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
   resultsContainer.appendChild(cgpaHeading);
 }
 
