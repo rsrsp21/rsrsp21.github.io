@@ -427,17 +427,11 @@ function displayResults() {
   }
 
   var idContainer = document.getElementById('id-container');
-  var idHeading = idContainer.querySelector('h3');
-  idHeading.textContent = 'Roll Number: ';
-  idHeading.style.color = 'black';
-  idHeading.style.fontWeight = 'bold';
-  idContainer.style.marginTop = '20px';
+  idContainer.innerHTML = '';
 
-  var idValue = document.createElement('span');
-  idValue.textContent = studentId;
-  idValue.style.color = 'red';
-  idValue.style.fontWeight = 'bold';
-  idHeading.appendChild(idValue);
+  var idHeading = document.createElement('h3');
+  idHeading.innerHTML = '<span style="color: black; font-weight: bold">ID: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
+  idContainer.appendChild(idHeading);
 
   var resultsContainer = document.getElementById('results-container');
   resultsContainer.innerHTML = '';
@@ -468,15 +462,12 @@ function displayResults() {
     }
   });
 
-  tableContainer.appendChild(table);
-
   var cgpaContainer = document.getElementById('cgpa-container');
   cgpaContainer.innerHTML = '';
 
-  var cgpaResult = document.createElement('h2');
-  cgpaResult.innerHTML = '<span style="color: black;">CGPA : </span><span style="color: red;">' + studentData[0]['CGPA'] + '</span>';
-
-  cgpaContainer.appendChild(cgpaResult);
+  var cgpaHeading = document.createElement('h2');
+  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA: </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
+  cgpaContainer.appendChild(cgpaHeading);
 }
 
   function handleKeyPress(event) {
