@@ -1,5 +1,4 @@
-
-    * {
+ * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -24,14 +23,14 @@
     }
 
     .logo img {
-      width: 700px;
+      max-width: 100%;
       height: auto;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 50px;
+      font-size: 45px;
     }
 h2 {
       text-align: center;
@@ -131,9 +130,29 @@ h2 {
       display: flex;
       justify-content: center;
     }
- .footer {
+
+   .footer {
       text-align: center;
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid #dddddd;
     }
+@media print {
+  label[for="student-id"],
+  #student-id,
+  button[onclick="displayResults()"],
+  #student-id,
+  button,
+  .print-button,
+  .footer{
+    display: none;
+  }
+.complain{
+	display: none;
+}
+}
+@media (max-width: 768px) {
+  th, td {
+    font-size: 16px;
+  }
+}
