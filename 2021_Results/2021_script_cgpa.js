@@ -1,4 +1,4 @@
-var csvData = `ID,1-1 SGPA,1-2 SGPA,2-1 SGPA,CGPA,Supplementary Appearances
+var csvData = `ID,1-1,1-2,2-1,CGPA,Supplementary Appearances
 21031A0101,0.0,0.0,0.0,0.0,***
 21031A0102,0.0,0.0,6.77,0.0,***
 21031A0103,7.13,6.69,8.17,7.33,
@@ -389,13 +389,27 @@ function displayResults() {
   idContainer.appendChild(idHeading);
 
   var tableContainer = document.getElementById('table-container');
-  tableContainer.innerHTML = '';
+tableContainer.innerHTML = '';
 
-  var table = document.createElement('table');
-  tableContainer.appendChild(table);
+var table = document.createElement('table');
+tableContainer.appendChild(table);
 
-  var tableBody = document.createElement('tbody');
-  table.appendChild(tableBody);
+var tableHeader = document.createElement('thead');
+table.appendChild(tableHeader);
+
+var headerRow = document.createElement('tr');
+tableHeader.appendChild(headerRow);
+
+var semestersHeader = document.createElement('th');
+semestersHeader.textContent = "Semesters";
+headerRow.appendChild(semestersHeader);
+
+var sgpaHeader = document.createElement('th');
+sgpaHeader.textContent = "SGPA";
+headerRow.appendChild(sgpaHeader);
+
+var tableBody = document.createElement('tbody');
+table.appendChild(tableBody);
 
   var keys = Object.keys(studentData[0]);
   keys.forEach(function (key) {
