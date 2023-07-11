@@ -200,53 +200,107 @@ var csvData = `ID,1-1 SGPA,CGPA,Supplementary Appearances
     return studentData;
   }
 
-  function displayResults() {
-    var studentId = document.getElementById('student-id').value.trim();
-    if (!studentId) {
-      alert('Please enter a valid Roll Number.');
-      return;
-    }
+ var message = ''; // Declare the message variable outside the function
 
-    var studentData = getStudentData(studentId, parseCSV(csvData));
-    if (studentData.length === 0) {
-      alert('No data found for the given Roll Number.');
-      return;
-    }
-
-    var resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = '';
-
-    var table = document.createElement('table');
-    var tableHeader = document.createElement('thead');
-    var tableBody = document.createElement('tbody');
-
-    var headers = Object.keys(studentData[0]);
-
-    var headerRow = document.createElement('tr');
-    headers.forEach(function (header) {
-      var th = document.createElement('th');
-      th.textContent = header;
-      headerRow.appendChild(th);
-    });
-    tableHeader.appendChild(headerRow);
-
-    studentData.forEach(function (subject) {
-      var row = document.createElement('tr');
-      headers.forEach(function (header) {
-        var td = document.createElement('td');
-        td.textContent = subject[header] === '' ? 'NA' : subject[header];
-        if (header === 'CGPA') {
-          td.style.fontWeight = 'bold'; // Make CGPA value bold
-        }
-        row.appendChild(td);
-      });
-      tableBody.appendChild(row);
-    });
-
-    table.appendChild(tableHeader);
-    table.appendChild(tableBody);
-    resultsContainer.appendChild(table);
+function displayResults() {
+  var studentId = document.getElementById('student-id').value.trim();
+  if (!studentId) {
+    alert('Please enter a valid Roll Number.');
+    return;
   }
+
+  var studentData = getStudentData(studentId, parseCSV(csvData));
+  if (studentData.length === 0) {
+    alert('No data found for the given Roll Number.');
+    return;
+  }
+
+  var idContainer = document.getElementById('id-container');
+  idContainer.innerHTML = '';
+
+  var idHeading = document.createElement('h3');
+  idHeading.innerHTML = '<span style="color: black; font-weight: bold">Roll Number: </span><span style="color: red; font-weight: bold">' + studentId + '</span>';
+  idContainer.appendChild(idHeading);
+
+  var tableContainer = document.getElementById('table-container');
+tableContainer.innerHTML = '';
+
+var table = document.createElement('table');
+tableContainer.appendChild(table);
+
+var tableHeader = document.createElement('thead');
+table.appendChild(tableHeader);
+
+var headerRow = document.createElement('tr');
+tableHeader.appendChild(headerRow);
+
+var semestersHeader = document.createElement('th');
+semestersHeader.textContent = "Semesters";
+headerRow.appendChild(semestersHeader);
+
+var sgpaHeader = document.createElement('th');
+sgpaHeader.textContent = "SGPA";
+headerRow.appendChild(sgpaHeader);
+
+var tableBody = document.createElement('tbody');
+table.appendChild(tableBody);
+
+  var keys = Object.keys(studentData[0]);
+  keys.forEach(function (key) {
+    if (key !== 'ID' && key !== 'CGPA') {
+      var row = document.createElement('tr');
+      var labelCell = document.createElement('td');
+      labelCell.textContent = key;
+      labelCell.style.fontWeight = 'bold';
+      row.appendChild(labelCell);
+
+      var valueCell = document.createElement('td');
+      var value = studentData[0][key] === '' ? 'NA' : studentData[0][key];
+      if (key === 'Supplementary Appearances') {
+        labelCell.style.color = 'blue';
+        valueCell.style.fontWeight = 'bold';
+        valueCell.style.color = 'black';
+      }
+      valueCell.textContent = value;
+      row.appendChild(valueCell);
+
+      tableBody.appendChild(row);
+    }
+  });
+
+  var cgpaContainer = document.getElementById('cgpa-container');
+  cgpaContainer.innerHTML = '';
+
+  var cgpaHeading = document.createElement('h2');
+  cgpaHeading.innerHTML = '<span style="color: black; font-weight: bold">CGPA : </span><span style="color: red; font-weight: bold">' + studentData[0]['CGPA'] + '</span>';
+  cgpaContainer.appendChild(cgpaHeading);
+
+  var cgpa = parseFloat(studentData[0]['CGPA']);
+  var supplementaryAppearances = studentData[0]['Supplementary Appearances'];
+
+  if (cgpa >= 7.75 && (supplementaryAppearances === 'NA' || supplementaryAppearances === '')) {
+    message = 'First Class with Distinction';
+  } else if (cgpa >= 6.75) {
+    message = 'First Class';
+  } else if (cgpa >= 5.75) {
+    message = 'Second Class';
+  } else if (cgpa >= 5) {
+    message = 'Pass Class';
+  } else {
+    message = 'Not Applicable';
+  }
+
+  var messageContainer = document.getElementById('message-container');
+  messageContainer.innerHTML = '';
+
+  if (message !== '') {
+    var messageElement = document.createElement('h3');
+    messageElement.textContent = message;
+    messageElement.style.color = 'green';
+    messageElement.style.fontWeight = 'bold';
+    messageContainer.appendChild(messageElement);
+  }
+}
 
   function handleKeyPress(event) {
     if (event.keyCode === 13) {
@@ -259,5 +313,11 @@ var csvData = `ID,1-1 SGPA,CGPA,Supplementary Appearances
   document.getElementById('student-id').addEventListener('keyup', handleKeyPress);
 
   function printResults() {
-    window.print();
-  }
+var printContents = document.querySelector('.container').innerHTML;
+var originalContents = document.body.innerHTML;
+
+document.body.innerHTML = printContents;
+window.print();
+
+document.body.innerHTML = originalContents;
+}
